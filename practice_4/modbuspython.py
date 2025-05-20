@@ -8,8 +8,8 @@ import time
 IP_ADDRESS = '109.167.241.225'
 PORT = 601
 DEVICE_ADDRESS = 1
-START_REGISTER = 3 * 100  # Номер студента 3 * 100 = 300
-REGISTER_COUNT = 12  # 2 числа U16 (2 регистра) + 10 символов ASCII (10 регистров)
+START_REGISTER = 3 * 100 
+REGISTER_COUNT = 12 
 
 def main():
     # Фиксируем время начала запроса
@@ -48,9 +48,7 @@ def main():
         # Читаем 2 числа U16
         number1 = decoder.decode_16bit_uint()
         number2 = decoder.decode_16bit_uint()
-        
-        # Читаем строку ASCII (10 символов = 10 байт)
-        # Так как каждый регистр 16 бит (2 байта), строка занимает 5 регистров
+
         ascii_string = decoder.decode_string(10).decode('ascii')
         
         # Выводим результаты
